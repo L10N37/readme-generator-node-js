@@ -19,7 +19,8 @@ WHEN I enter a description, installation instructions, usage information, contri
 THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests [x]
 
 WHEN I choose a license for my application from a list of options
-THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
+THEN a badge for that license is added near the top of the README [X]
+and a notice is added to the section of the README entitled License that explains which license the application is covered under [x]
 
 WHEN I enter my GitHub username
 THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
@@ -32,17 +33,17 @@ THEN I am taken to the corresponding section of the README
 
 */
 
-// The main code here was initially created by ChatGPT! This was modified to suit the project requirements.
+
 
 //https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba#file-license-badges-md
 const licenseBadges = {
     question: "Which license do you want to use for your github project?",
-    options: ['Apache 2.0 License', 'Boost Software License 1.0', 'BSD 3-Clause License', 'BSD 2-Clause License', 'Creative Commons Zero', 'Creative Commons Attribution 4.0 International',
+    options: ['Apache 2.0', 'Boost Software 1.0', 'BSD 3-Clause', 'BSD 2-Clause', 'Creative Commons Zero', 'Creative Commons Attribution 4.0 International',
     'Creative Commons Attribution-ShareAlike 4.0 International', 'Creative Commons 4 Attribution-NonCommercial 4.0 International', 'Creative Commons Attribution-NoDerivates 4.0 International',
-    'Creative Commons Attribution-NonCommmercial-ShareAlike 4.0 International', 'Attribution-NonCommercial-NoDerivatives 4.0 International', 'Eclipse Public License 1.0' , 'GNU GPL v3',
-    'GNU GPL v2', 'GNU AGPL v3', 'GNU LGPL v3', 'GNU FDL v1.3', 'The Hippocratic License 2.1', 'The Hippocratic License 3.0', 'IBM Public License Version 1.0', 'ISC License (ISC)', 
-    'The MIT License', 'Mozilla Public License 2.0', 'Attribution License (BY)', 'Open Database License (ODbL)', 'Public Domain Dedication and License (PDDL)', 'The Perl License', 
-    'The Artistic License 2.0', 'SIL Open Font License 1.1', 'The Unlicense', 'The Do What the Fuck You Want to Public License', 'The zlib/libpng License'],
+    'Creative Commons Attribution-NonCommmercial-ShareAlike 4.0 International', 'Attribution-NonCommercial-NoDerivatives 4.0 International', 'Eclipse Public 1.0' , 'GNU GPL v3',
+    'GNU GPL v2', 'GNU AGPL v3', 'GNU LGPL v3', 'GNU FDL v1.3', 'The Hippocratic  2.1', 'The Hippocratic  3.0', 'IBM Public  Version 1.0', 'ISC  (ISC)', 
+    'The MIT', 'Mozilla Public 2.0', 'Attribution  (BY)', 'Open Database  (ODbL)', 'Public Domain Dedication and  (PDDL)', 'The Perl ', 
+    'The Artistic 2.0', 'SIL Open Font  1.1', 'The Unlicense', 'The Do What the Fuck You Want to Public', 'The zlib/libpng'],
     badgeLinks: // These are in order of the options above (index of arrays match)
     ['[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)',
     '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)',
@@ -77,61 +78,15 @@ const licenseBadges = {
     '[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)',
     '[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)']};
 
+
+function launch(indexToPass, license) {
 const fs = require("fs");
 const readline = require("readline");
-let license= '';
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
-const generateReadme = (data) => {
-  return `
-
-# ${data.title}
-<br>
-${data.description}
-<br>
-
-## Table Of Contents
-<br>
-${data.TOC}
-<br>
-
-## Installation
-<br>
-${data.installation}
-<br>
-
-## Usage
-<br>
-${data.usage}
-<br>
-
-## Contributing
-<br>
-${data.contributing}
-<br>
-
-## Tests
-<br>
-${data.tests}
-<br>
-
-## Questions
-<br>
-${data.questions}
-<br>
-
-`;
-};
-
-
-function renderLicenseBadge(license) {
-license = "testing";
-    return license;
-}
 
 rl.question("Enter title: ", (title) => {
     rl.question("Enter table of contents: ", (TOC) => {
@@ -142,7 +97,7 @@ rl.question("Enter title: ", (title) => {
                         rl.question("Enter test instructions: ", (tests) => {
                                 rl.question("Enter questions: ", (questions) => {
           const data = { title, TOC, description, installation, usage, contributing, tests, questions };
-          const readme = renderLicenseBadge(license)+generateReadme(data);
+          const readme = generateReadme(indexToPass, license, data);
           fs.writeFile("README.md", readme, (err) => {
             if (err) throw err;
             console.log("README.md generated!");
@@ -156,5 +111,83 @@ rl.question("Enter title: ", (title) => {
             });
         });
     });
+}
 
+    const generateReadme = (indexToPass, license, data) => {
+ 
+      return indexToPass + `
+      
+      # ${data.title}
+      <br>
+      ${data.description}
+      <br>
+      
+      ## Table Of Contents
+      <br>
+      ${data.TOC}
+      <br>
+      
+      ## Installation
+      <br>
+      ${data.installation}
+      <br>
+      
+      ## Usage
+      <br>
+      ${data.usage}
+      <br>
 
+      ## License
+      <br> 
+        `
+        + `This project uses the ` + license + ` license, the license badge in the README header is a clickable link containing license information` + 
+        `
+      <br>
+      
+      ## Contributing
+      <br>
+      ${data.contributing}
+      <br>
+      
+      ## Tests
+      <br>
+      ${data.tests}
+      <br>
+      
+      ## Questions
+      <br>
+      ${data.questions}
+      <br>
+      
+      `
+      };
+
+ 
+async function renderLicenseBadge() {
+const inquirer = require('inquirer');
+
+inquirer
+  .prompt([
+    {
+      type: 'list',
+      name: 'licenseChosen',
+      message: licenseBadges.question,
+      choices: licenseBadges.options,
+    },
+  ])
+  .then(answers => {
+    let license = answers.licenseChosen;
+        let indexToPass;
+
+    for (let i= 0; i < 32; i++) {
+        if (license == licenseBadges.options[i]) {
+            indexToPass = i;
+            break;
+        }
+    }
+    launch(licenseBadges.badgeLinks[indexToPass], license);
+  });
+}
+
+// function sets the license badge link up dependant on user selection and then calls readMeGenerator function
+renderLicenseBadge();

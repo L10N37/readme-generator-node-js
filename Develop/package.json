@@ -1,5 +1,5 @@
 {
-  "name": "readme-generator-node-js",
+  "name": "readme-generator-node",
   "version": "1.0.0",
   "description": "A readme generator that uses node js",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "author": "Lionel Sanderson",
   "license": "MIT",
   "dependencies": {
-    "inquirer": "^6.3.1"
+    "inquirer": "^6.5.2"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,6 @@
     "readme",
     "generator",
     "nodejs"
-  ]
+  ],
+  "devDependencies": {}
 }
