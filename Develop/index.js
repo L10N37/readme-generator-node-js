@@ -115,52 +115,60 @@ rl.question("Enter title: ", (title) => {
 
     const generateReadme = (indexToPass, license, data) => {
  
-      return indexToPass + `
+return indexToPass + `
       
-      # ${data.title}
-      <br>
-      ${data.description}
-      <br>
-      
-      ## Table Of Contents
-      <br>
-      ${data.TOC}
-      <br>
-      
-      ## Installation
-      <br>
-      ${data.installation}
-      <br>
-      
-      ## Usage
-      <br>
-      ${data.usage}
-      <br>
+# ${data.title}
+<br>
+${data.description}
+<br>
+<br>
 
-      ## License
-      <br> 
-        `
-        + `This project uses the ` + license + ` license, the license badge in the README header is a clickable link containing license information` + 
-        `
-      <br>
+## Table Of Contents
+<br>
+${data.TOC}
+<br>
+<br>
       
-      ## Contributing
-      <br>
-      ${data.contributing}
-      <br>
+## Installation
+<br>
+${data.installation}
+<br>
+<br>
       
-      ## Tests
-      <br>
-      ${data.tests}
-      <br>
+## Usage
+<br>
+${data.usage}
+<br>
+<br>
+
+## License
+<br>
+`
++ `This project uses the ` + license + ` license, the license badge in the README header is a clickable link containing license information.` + 
+`
+<br>
+<br>
       
-      ## Questions
-      <br>
-      ${data.questions}
-      <br>
+## Contributing
+<br>
+${data.contributing}
+<br>
+<br>
       
-      `
-      };
+## Tests
+<br>
+${data.tests}
+<br>
+<br>
+      
+## Questions
+<br>
+${data.questions}
+<br>
+<br>
+ 
+`
+};
 
  
 async function renderLicenseBadge() {
