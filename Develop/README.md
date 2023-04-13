@@ -8,13 +8,13 @@
 
 ## Table Of Contents
 <br>
-[Description](-Description) <br>
-[Installation](-Installation) <br>
-[Usage](-Usage) <br>
-[License](-License) <br>
-[Contributing](-Contributing) <br>
-[Tests](-Tests) <br>
-[Questions](-Questions) <br>
+[Description](#Description) <br>
+[Installation](#Installation) <br>
+[Usage](#Usage) <br>
+[License](#License) <br>
+[Contributing](#Contributing) <br>
+[Tests](#Tests) <br>
+[Questions](#Questions) <br>
 <br>
 <br>
       
@@ -52,7 +52,7 @@ This project uses the Apache 2.0 license, the license badge in the README header
 <br>
 
 <br>
-<a href="mailto:">You can contact me with any questions here</a>
+<a href="mailto:lfsanderson@hotmail.com">You can contact me with any questions here</a>
 <br>
 <br>
  
