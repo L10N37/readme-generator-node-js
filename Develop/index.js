@@ -174,6 +174,7 @@ ${data.tests}
 ${data.questions}
 <br>
 <a href="mailto:${data.emailAddress}">You can contact me with any questions here</a>
+[My Github](https://www.github.com/${data.githubUsername})
 <br>
 <br>
  
