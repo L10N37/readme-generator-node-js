@@ -8,7 +8,7 @@
 
 ## Table Of Contents
 <br>
-[Description](#Description) <br>
+
 [Installation](#Installation) <br>
 [Usage](#Usage) <br>
 [License](#License) <br>
