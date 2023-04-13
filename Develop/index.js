@@ -23,13 +23,13 @@ THEN a badge for that license is added near the top of the README [X]
 and a notice is added to the section of the README entitled License that explains which license the application is covered under [x]
 
 WHEN I enter my GitHub username
-THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
+THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile [x]
 
 WHEN I enter my email address
-THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
+THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions [x]
 
 WHEN I click on the links in the Table of Contents
-THEN I am taken to the corresponding section of the README
+THEN I am taken to the corresponding section of the README [x]
 
 */
 
@@ -89,19 +89,21 @@ const rl = readline.createInterface({
 });
 
 rl.question("Enter title: ", (title) => {
-    rl.question("Enter table of contents: ", (TOC) => {
-        rl.question("Enter description: ", (description) => {
-            rl.question("Enter installation instructions: ", (installation) => {
-                rl.question("Enter usage information: ", (usage) => {
-                    rl.question("Enter contribution guidelines: ", (contributing) => {
-                        rl.question("Enter test instructions: ", (tests) => {
-                                rl.question("Enter questions: ", (questions) => {
-          const data = { title, TOC, description, installation, usage, contributing, tests, questions };
+    rl.question("Enter description: ", (description) => {
+        rl.question("Enter installation instructions: ", (installation) => {
+            rl.question("Enter usage information: ", (usage) => {
+                rl.question("Enter contribution guidelines: ", (contributing) => {
+                    rl.question("Enter test instructions: ", (tests) => {
+                        rl.question("Enter questions: ", (questions) => {
+                            rl.question("Enter your github username: ", (githubUsername) => {
+                                rl.question("Enter your email address: ", (emailAddress) => {
+          const data = { title, description, installation, usage, contributing, tests, questions, githubUsername, emailAddress };
           const readme = generateReadme(indexToPass, license, data);
           fs.writeFile("README.md", readme, (err) => {
             if (err) throw err;
             console.log("README.md generated!");
             rl.close();
+                                        });
                                     });
                                 });
                             });
@@ -125,7 +127,13 @@ ${data.description}
 
 ## Table Of Contents
 <br>
-${data.TOC}
+[Description](#Description) <br>
+[Installation](#Installation) <br>
+[Usage](#Usage) <br>
+[License](#License) <br>
+[Contributing](#Contributing) <br>
+[Tests](#Tests) <br>
+[Questions](#Questions) <br>
 <br>
 <br>
       
@@ -164,6 +172,8 @@ ${data.tests}
 ## Questions
 <br>
 ${data.questions}
+<br>
+<a href="mailto:${data.emailAddress}">You can contact me with any questions here</a>
 <br>
 <br>
  
