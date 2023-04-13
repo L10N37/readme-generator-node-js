@@ -57,7 +57,9 @@ My github and email address are in this section if you wish to contact me.
 <br>
 <a href="mailto:lfsanderson@hotmail.com">You can contact me with any questions here</a>
 <br>
+
 [My Github](https://www.github.com/L10N37)
+
 <br>
 <br>
  
