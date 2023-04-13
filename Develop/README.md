@@ -32,6 +32,7 @@ There are a couple of dependencies required - Node.JS and Inquirer. An instructi
 An instructional video is on the way but basically once this application is launched, you select a license from a list and follow the prompts with your input.
 <br>
 <br>
+
 ## License
 <br>
 This project uses the Boost Software 1.0 license, the license badge in the README header is a clickable link containing license information.
