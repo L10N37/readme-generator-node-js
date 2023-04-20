@@ -53,4 +53,4 @@ THEN I am taken to the corresponding section of the README
 <br>
 <br>
 
-[How to use the application](https://www.youtube.com/watch?v=kYQ1O5urFn4)
+[How to use the application](https://www.youtube.com/watch?v=GjAndszN2tU)
